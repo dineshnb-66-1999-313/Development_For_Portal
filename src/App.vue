@@ -35,7 +35,7 @@ export default {
 }
 .sidebar_content{
   height: 100vh;
-  margin-top: 3rem;
+  margin-top: 0rem;
   position: relative;
 }
 </style>

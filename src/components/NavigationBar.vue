@@ -33,7 +33,7 @@ export default {
     background-color: #475375;
     border-bottom: 1px solid #000;
     position: fixed;
-    z-index: 10000;
+    z-index: 0000;
 }
 .bar_style{
     margin-right: 12px;

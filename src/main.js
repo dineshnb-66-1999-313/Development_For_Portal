@@ -6,7 +6,13 @@ import Helloworld from './components/HelloWorld';
 import Tablecontent from './Content_render/Tablecontent';
 import Contarct_reneval_page from './Content_render/Contract_reneval_portal';
 import Crop_data from './Content_render/crop_data';
+import { VBModal } from 'bootstrap-vue';
+import { BModal } from 'bootstrap-vue'
+Vue.component('b-modal', BModal);
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+Vue.directive('b-modal', VBModal);
 
 Vue.use(VueRouter);
 

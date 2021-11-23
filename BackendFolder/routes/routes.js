@@ -52,6 +52,7 @@ router.get('/getallcrop_category',(req,res) => {
         }
     });
 })
+
 router.get('/getallcrop_name/:crop_category',(req,res) => {
     mysqlconnect.query("SELECT * FROM crop_category_items WHERE Crop_Category = ?",[req.params.crop_category],(err, crop_name_data) => {
         if(!err){
@@ -60,6 +61,32 @@ router.get('/getallcrop_name/:crop_category',(req,res) => {
             res.send({
               message: "Data fetched Successfully",
               data: crop_name_data,
+            });
+        }
+    });
+})
+
+router.get('/getentireData/:ID',(req,res) => {
+    mysqlconnect.query("SELECT * FROM add_crop_image_table WHERE Crop_id = ?",[req.params.ID],(err, crop_details) => {
+        if(!err){
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
+            res.send({
+              message: "Data fetched Successfully",
+              data: crop_details,
+            });
+        }
+    });
+})
+
+router.get('/getpurchaserDatils/:ID', (req,res) => {
+    mysqlconnect.query("SELECT * FROM purchased_crop_item WHERE Crop_id = ?",[req.params.ID],(err, purchaser_info) => {
+        if(!err){
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
+            res.send({
+              message: "Data fetched Successfully",
+              data: purchaser_info,
             });
         }
     });
