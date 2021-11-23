@@ -1,6 +1,9 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid body">
       <div class="row">
+        <NavigationBar />
+      </div>
+      <div class="row sidebar_content">
         <div class="col-md-2 sidebar_side">
             <Sidebar />
         </div>
@@ -13,11 +16,12 @@
 
 <script>
 import Sidebar from './components/Sidebar.vue';
+import NavigationBar from './components/NavigationBar.vue';
 
 export default {
   name: 'App',
   components: {
-    Sidebar
+    Sidebar, NavigationBar
   }
 }
 </script>
@@ -28,6 +32,10 @@ export default {
 }
 .sidebar_side{
   background-color: #475375;
+}
+.sidebar_content{
   height: 100vh;
+  margin-top: 3rem;
+  position: relative;
 }
 </style>

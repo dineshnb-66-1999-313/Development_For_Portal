@@ -5,6 +5,7 @@ import SmartTable from 'vuejs-smart-table';
 import Helloworld from './components/HelloWorld';
 import Tablecontent from './Content_render/Tablecontent';
 import Contarct_reneval_page from './Content_render/Contract_reneval_portal';
+import Crop_data from './Content_render/crop_data';
 
 
 Vue.use(VueRouter);
@@ -21,7 +22,11 @@ const routes = [
   {
     path : "/Contarct_reneval_portal",
     component: Contarct_reneval_page
-  }
+  },
+  {
+    path : "/crop_data",
+    component: Crop_data
+  },
 
 ]
 
