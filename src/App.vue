@@ -1,13 +1,13 @@
 <template>
-  <div class="container-fluid body">
+  <div class="container-fluid">
       <div class="row">
         <NavigationBar />
       </div>
-      <div class="row sidebar_content">
-        <div class="col-md-2 sidebar_side">
+      <div class="row pt-5 sidebar_content">
+        <div class="col-md-3 col-lg-2 sidebar_side">
             <Sidebar />
         </div>
-        <div class="col-md-10 Maincontent">
+        <div class="col-md-9 col-lg-10 Maincontent">
           <router-view></router-view>
         </div>
       </div>
@@ -35,7 +35,6 @@ export default {
 }
 .sidebar_content{
   height: 100vh;
-  margin-top: 0rem;
   position: relative;
 }
 </style>

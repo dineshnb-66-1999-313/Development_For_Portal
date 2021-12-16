@@ -1,14 +1,22 @@
 <template>
   <div class="hello">
-    <h1>this is Vue Js Smart Table Home Page</h1>
+    <h1>{{joke}}</h1>
+    <button @click="addjoke">Add email</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  methods: {
+    addjoke(){
+      this.$store.dispatch("setCurrentJoke");
+    }
+  },
+  computed:{
+    joke(){
+      return this.$store.getters.getCurrentJoke;
+    }
   }
 }
 </script>

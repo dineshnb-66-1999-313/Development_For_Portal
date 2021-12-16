@@ -55,6 +55,7 @@
                                 <h5>Purchaser Email</h5>
                                 <h5>Total Quantity</h5>
                                 <h5>Selected Quantity</h5>
+                                <h5>Crop Price/Kg</h5>
                                 <h5>Total Price</h5>
                             </div>
                             <div class="col-7 col-md-7 text-success">
@@ -66,6 +67,7 @@
                                 <h5>{{product.purchaser_E_mail_id}}</h5>
                                 <h5>{{product.total_quantity}} /kg</h5>
                                 <h5>{{product.selected_quantity}} /Kg</h5>
+                                <h5>{{product.crop_price}} /Kg</h5>
                                 <h5>₹ Rs {{product.total_price}} /-</h5>
                             </div>
                             <hr>
@@ -106,7 +108,11 @@
                                 <td>{{ row.crop_status }}</td>
                                 <td>{{ row.crop_category }}</td>
                                 <td>{{ row.crop_quantity }}</td>
-                                <td><b-button v-b-modal.modal-lg class="btn btn-success" v-on:click="showdetails(row.Crop_id, row.crop_status)"><i class="fas fa-eye fa-1x"></i></b-button></td>
+                                <td>
+                                    <!-- <b-button v-b-modal.modal-lg class="btn btn-success" v-on:click="showdetails(row.Crop_id, row.crop_status)"><i class="fas fa-eye fa-1x"></i></b-button> -->
+                                    <b-button class="btn btn-success"><router-link :to="`/crop_data/purchaser_info/${row.Crop_id}`"><i class="fas fa-eye fa-1x"></i></router-link></b-button>
+                                    <!-- <b-button class="btn btn-success"><router-link :to="{path: 'crop_data', params: {id: row.Crop_id}}"><i class="fas fa-eye fa-1x"></i></router-link></b-button> -->
+                                </td>
                             </tr>
                         </tbody>
                         </v-table>
