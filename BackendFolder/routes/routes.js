@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const axios = require("axios");
 const path = require('path');
 const moment = require('moment');
+const { getMaxListeners } = require("process");
 
 var mysqlconnect = mysql.createConnection({
     host: 'localhost',
@@ -90,6 +91,45 @@ router.get('/getpurchaserDatils/:ID', (req,res) => {
             });
         }
     });
+})
+
+// graph related
+
+router.get('/getcropnamesprice/:emailid', (req,res) => {
+    mysqlconnect.query("SELECT crop_name, crop_price FROM add_crop_image_table WHERE E_mail_id = ?", [req.params.emailid],(err,data) => {
+        if(!err){
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
+            res.send({
+              message: "Data fetched Successfully",
+              data: data,
+            });
+        }
+    })
+})
+router.get('/getfarmeremailid',(req,res) => {
+    mysqlconnect.query("SELECT DISTINCT E_mail_id FROM add_crop_image_table", (err,data) => {
+        if(!err){
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
+            res.send({
+              message: "Data fetched Successfully",
+              data: data,
+            });
+        }
+    })
+})
+router.get('/getcrop_status_count/:emailid', (req,res) => {
+    mysqlconnect.query("SELECT crop_status, COUNT(crop_status) AS Approved_count FROM add_crop_image_table WHERE E_mail_id = ? GROUP BY crop_status", [req.params.emailid], (err, data) => {
+        if(!err){
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
+            res.send({
+              message: "Data fetched Successfully",
+              data: data,
+            });
+        }
+    })
 })
 
 

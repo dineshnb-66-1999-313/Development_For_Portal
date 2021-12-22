@@ -10,7 +10,10 @@ import sumne1 from './Content_render/sumne1';
 import sumne2 from './Content_render/sumne2';
 import LoginForm from './Content_render/LoginForm';
 import { VBModal } from 'bootstrap-vue';
-import { BModal } from 'bootstrap-vue'
+import { BModal } from 'bootstrap-vue';
+import ChartContainer from './Content_render/ChartContainer';
+// import Chartdata_old from './Content_render/chartdata_old';
+
 Vue.component('b-modal', BModal);
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -50,6 +53,10 @@ const routes = [
     path : "/loginform",
     component: LoginForm
   },
+  {
+    path: "/grephview",
+    component: ChartContainer//Chartdata_old 
+  }
 
 ]
 
